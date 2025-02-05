@@ -22,52 +22,104 @@ import com.project.income.service.IncomeService;
 
 import jakarta.validation.Valid;
 
+/**
+ * REST controller for managing incomes.
+ */
 @RestController
 @RequestMapping("/income")
 public class IncomeController {
 
 	private final IncomeService incomeService;
 
-    @Autowired
-    public IncomeController(IncomeService incomeService) {
-        this.incomeService=incomeService;
-    }
+	@Autowired
+	public IncomeController(IncomeService incomeService) {
+		this.incomeService = incomeService;
+	}
 
+	/**
+	 * Adds a new income.
+	 *
+	 * @param incomeDTO the data transfer object containing the income details
+	 * @return the added income
+	 */
 	@PostMapping("/add")
 	public Income addIncome(@RequestBody @Valid IncomeDTO incomeDTO) {
 		return incomeService.addIncome(incomeDTO);
 	}
 
+	/**
+	 * Updates an existing income.
+	 *
+	 * @param id        the ID of the income to be updated
+	 * @param userId    the ID of the user who owns the income
+	 * @param incomeDTO the data transfer object containing the updated income
+	 *                  details
+	 * @return the updated income
+	 */
 	@PutMapping("/update/{userId}/{id}")
 	public Income updateIncome(@PathVariable Long id, @PathVariable Long userId,
 			@RequestBody @Valid IncomeDTO incomeDTO) {
 		return incomeService.updateIncome(id, incomeDTO);
 	}
 
+	/**
+	 * Deletes an income.
+	 *
+	 * @param userId the ID of the user who owns the income
+	 * @param id     the ID of the income to be deleted
+	 * @return a message indicating the result of the deletion
+	 */
 	@DeleteMapping("/delete/{userId}/{id}")
 	public String deleteIncome(@PathVariable Long userId, @PathVariable Long id) {
 		return incomeService.deleteIncome(id, userId);
 	}
 
+	/**
+	 * Retrieves an income by ID.
+	 *
+	 * @param userId the ID of the user who owns the income
+	 * @param id     the ID of the income to be retrieved
+	 * @return the retrieved income
+	 */
 	@GetMapping("/get/{userId}/{id}")
 	public Income getIncome(@PathVariable Long userId, @PathVariable Long id) {
 		return incomeService.getIncome(id, userId);
 	}
 
-	@GetMapping("/getAll/{userId}") // mention ?userId=1&page=1&size=10
+	/**
+	 * Retrieves a paginated list of all incomes for a specific user.
+	 *
+	 * @param userId   the ID of the user whose incomes are to be retrieved
+	 * @param pageable the pagination information
+	 * @return a paginated list of incomes
+	 */
+	@GetMapping("/getAll/{userId}")
 	public Page<Income> getAllIncome(@PathVariable Long userId, Pageable pageable) {
 		return incomeService.getAllIncome(userId, pageable);
 	}
 
+	/**
+	 * Retrieves the total amount of incomes for a specific user.
+	 *
+	 * @param userId the ID of the user whose total incomes are to be retrieved
+	 * @return the total amount of incomes
+	 */
 	@GetMapping("/get/total/{userId}")
 	public Double getTotalIncome(@PathVariable Long userId) {
 		return incomeService.getTotalIncome(userId);
 	}
 
-	@GetMapping("/get/daterange") // mention ?userId=1&startDate=2025-01-25&endDate=2025-01-28
+	/**
+	 * Retrieves a list of incomes for a specific user within a given date range.
+	 *
+	 * @param userId    the ID of the user whose incomes are to be retrieved
+	 * @param startDate the start date of the date range
+	 * @param endDate   the end date of the date range
+	 * @return a list of incomes for the specified user and date range
+	 */
+	@GetMapping("/get/daterange")
 	public List<Income> getIncomesByUserIdAndDateBetween(@RequestParam("userId") Long userId,
 			@RequestParam("startDate") LocalDate startDate, @RequestParam("endDate") LocalDate endDate) {
 		return incomeService.getIncomesByUserIdAndDateBetween(userId, startDate, endDate);
 	}
-
 }

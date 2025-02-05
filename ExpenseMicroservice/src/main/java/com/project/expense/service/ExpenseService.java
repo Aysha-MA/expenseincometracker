@@ -10,7 +10,7 @@ import com.project.expense.dto.ExpenseDTO;
 import com.project.expense.entity.Expense;
 
 public interface ExpenseService {
-	public abstract Expense  addExpense(ExpenseDTO expenseDTO);
+	public abstract Expense addExpense(ExpenseDTO expenseDTO);
 
 	public abstract Expense updateExpense(Long id, ExpenseDTO expenseDTO);
 

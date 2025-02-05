@@ -36,161 +36,159 @@ import com.project.expense.service.ExpenseServiceImpl;
 @ExtendWith(MockitoExtension.class)
 public class ExpenseMicroserviceApplicationTests {
 
-    @Mock
-    private ExpenseRepository expenseRepository;
+	@Mock
+	private ExpenseRepository expenseRepository;
 
-    @InjectMocks
-    private ExpenseServiceImpl expenseService;
+	@InjectMocks
+	private ExpenseServiceImpl expenseService;
 
-    private Expense expense;
-    private ExpenseDTO expenseDTO;
+	private Expense expense;
+	private ExpenseDTO expenseDTO;
 
-    @BeforeEach
-    public void setUp() {
-        expense = new Expense();
-        expense.setId(1L);
-        expense.setTitle("Groceries");
-        expense.setDescription("Weekly groceries");
-        expense.setCategory("Food");
-        expense.setAmount(150.0);
-        expense.setDate(LocalDate.of(2023, 1, 15));
-        expense.setUserId(1L);
+	@BeforeEach
+	public void setUp() {
+		expense = new Expense();
+		expense.setId(1L);
+		expense.setTitle("Groceries");
+		expense.setDescription("Weekly groceries");
+		expense.setCategory("Food");
+		expense.setAmount(150.0);
+		expense.setDate(LocalDate.of(2023, 1, 15));
+		expense.setUserId(1L);
 
-        expenseDTO = new ExpenseDTO();
-        expenseDTO.setTitle("Groceries");
-        expenseDTO.setDescription("Weekly groceries");
-        expenseDTO.setCategory("Food");
-        expenseDTO.setAmount(150.0);
-        expenseDTO.setDate(LocalDate.of(2023, 1, 15));
-        expenseDTO.setUserId(1L);
-    }
+		expenseDTO = new ExpenseDTO();
+		expenseDTO.setTitle("Groceries");
+		expenseDTO.setDescription("Weekly groceries");
+		expenseDTO.setCategory("Food");
+		expenseDTO.setAmount(150.0);
+		expenseDTO.setDate(LocalDate.of(2023, 1, 15));
+		expenseDTO.setUserId(1L);
+	}
 
-    @Test
-    public void testDeleteExpense() {
-        when(expenseRepository.findByIdAndUserId(1L, 1L)).thenReturn(Optional.of(expense));
+	@Test
+	public void testDeleteExpense() {
+		when(expenseRepository.findByIdAndUserId(1L, 1L)).thenReturn(Optional.of(expense));
 
-        String result = expenseService.deleteExpense(1L, 1L);
+		String result = expenseService.deleteExpense(1L, 1L);
 
-        assertEquals("Expense Deleted Successfully", result);
-        verify(expenseRepository, times(1)).delete(expense);
-    }
+		assertEquals("Expense Deleted Successfully", result);
+		verify(expenseRepository, times(1)).delete(expense);
+	}
 
-    @Test
-    public void testDeleteExpense_NotFound() {
-        when(expenseRepository.findByIdAndUserId(1L, 1L)).thenReturn(Optional.empty());
+	@Test
+	public void testDeleteExpense_NotFound() {
+		when(expenseRepository.findByIdAndUserId(1L, 1L)).thenReturn(Optional.empty());
 
-        assertThrows(ExpenseNotFoundException.class, () -> {
-            expenseService.deleteExpense(1L, 1L);
-        });
-    }
+		assertThrows(ExpenseNotFoundException.class, () -> {
+			expenseService.deleteExpense(1L, 1L);
+		});
+	}
 
-    @Test
-    public void testGetExpense() {
-        when(expenseRepository.findByIdAndUserId(1L, 1L)).thenReturn(Optional.of(expense));
+	@Test
+	public void testGetExpense() {
+		when(expenseRepository.findByIdAndUserId(1L, 1L)).thenReturn(Optional.of(expense));
 
-        Expense foundExpense = expenseService.getExpense(1L, 1L);
+		Expense foundExpense = expenseService.getExpense(1L, 1L);
 
-        assertNotNull(foundExpense);
-        assertEquals(expense.getTitle(), foundExpense.getTitle());
-    }
+		assertNotNull(foundExpense);
+		assertEquals(expense.getTitle(), foundExpense.getTitle());
+	}
 
-    @Test
-    public void testGetExpense_NotFound() {
-        when(expenseRepository.findByIdAndUserId(1L, 1L)).thenReturn(Optional.empty());
+	@Test
+	public void testGetExpense_NotFound() {
+		when(expenseRepository.findByIdAndUserId(1L, 1L)).thenReturn(Optional.empty());
 
-        assertThrows(ExpenseNotFoundException.class, () -> {
-            expenseService.getExpense(1L, 1L);
-        });
-    }
+		assertThrows(ExpenseNotFoundException.class, () -> {
+			expenseService.getExpense(1L, 1L);
+		});
+	}
 
-    @Test
-    public void testGetAllExpenses() {
-        Pageable pageable = PageRequest.of(0, 10, Sort.by(Sort.Order.desc("date")));
-        Page<Expense> page = new PageImpl<>(Arrays.asList(expense));
-        
-        when(expenseRepository.findByUserId(eq(1L), any(Pageable.class))).thenReturn(page);
+	@Test
+	public void testGetAllExpenses() {
+		Pageable pageable = PageRequest.of(0, 10, Sort.by(Sort.Order.desc("date")));
+		Page<Expense> page = new PageImpl<>(Arrays.asList(expense));
 
-        Page<Expense> expenses = expenseService.getAllExpenses(1L, pageable);
+		when(expenseRepository.findByUserId(eq(1L), any(Pageable.class))).thenReturn(page);
 
-        assertNotNull(expenses);
-        assertEquals(1, expenses.getTotalElements());
-    }
+		Page<Expense> expenses = expenseService.getAllExpenses(1L, pageable);
 
-    @Test
-    public void testGetTotalExpenses() {
-        when(expenseRepository.sumAmountByUserId(1L)).thenReturn(150.0);
+		assertNotNull(expenses);
+		assertEquals(1, expenses.getTotalElements());
+	}
 
-        Double totalExpenses = expenseService.getTotalExpenses(1L);
+	@Test
+	public void testGetTotalExpenses() {
+		when(expenseRepository.sumAmountByUserId(1L)).thenReturn(150.0);
 
-        assertEquals(150.0, totalExpenses);
-    }
+		Double totalExpenses = expenseService.getTotalExpenses(1L);
 
-    @Test
-    public void testGetTotalExpenses_NotFound() {
-        when(expenseRepository.sumAmountByUserId(1L)).thenReturn(null);
+		assertEquals(150.0, totalExpenses);
+	}
 
-        assertThrows(ExpenseNotFoundException.class, () -> {
-            expenseService.getTotalExpenses(1L);
-        });
-    }
+	@Test
+	public void testGetTotalExpenses_NotFound() {
+		when(expenseRepository.sumAmountByUserId(1L)).thenReturn(null);
 
-    @Test
-    public void testAddExpense() {
-        when(expenseRepository.save(any(Expense.class))).thenReturn(expense);
+		assertThrows(ExpenseNotFoundException.class, () -> {
+			expenseService.getTotalExpenses(1L);
+		});
+	}
 
-        Expense result = expenseService.addExpense(expenseDTO);
+	@Test
+	public void testAddExpense() {
+		when(expenseRepository.save(any(Expense.class))).thenReturn(expense);
 
-        assertNotNull(result);
-        assertEquals(expense.getTitle(), result.getTitle());
-        assertEquals(expense.getDescription(), result.getDescription());
-        assertEquals(expense.getCategory(), result.getCategory());
-        assertEquals(expense.getAmount(), result.getAmount());
-        assertEquals(expense.getDate(), result.getDate());
-        assertEquals(expense.getUserId(), result.getUserId());
-    }
+		Expense result = expenseService.addExpense(expenseDTO);
 
-    @Test
-    public void testUpdateExpense() {
-        when(expenseRepository.findByIdAndUserId(1L, 1L)).thenReturn(Optional.of(expense));
-        when(expenseRepository.save(any(Expense.class))).thenReturn(expense);
+		assertNotNull(result);
+		assertEquals(expense.getTitle(), result.getTitle());
+		assertEquals(expense.getDescription(), result.getDescription());
+		assertEquals(expense.getCategory(), result.getCategory());
+		assertEquals(expense.getAmount(), result.getAmount());
+		assertEquals(expense.getDate(), result.getDate());
+		assertEquals(expense.getUserId(), result.getUserId());
+	}
 
-        Expense updatedExpense = expenseService.updateExpense(1L, expenseDTO);
+	@Test
+	public void testUpdateExpense() {
+		when(expenseRepository.findByIdAndUserId(1L, 1L)).thenReturn(Optional.of(expense));
+		when(expenseRepository.save(any(Expense.class))).thenReturn(expense);
 
-        assertNotNull(updatedExpense);
-        assertEquals(expenseDTO.getTitle(), updatedExpense.getTitle());
-    }
+		Expense updatedExpense = expenseService.updateExpense(1L, expenseDTO);
 
-    @Test
-    public void testUpdateExpense_NotFound() {
-        when(expenseRepository.findByIdAndUserId(1L, 1L)).thenReturn(Optional.empty());
+		assertNotNull(updatedExpense);
+		assertEquals(expenseDTO.getTitle(), updatedExpense.getTitle());
+	}
 
-        assertThrows(ExpenseNotFoundException.class, () -> {
-            expenseService.updateExpense(1L, expenseDTO);
-        });
-    }
+	@Test
+	public void testUpdateExpense_NotFound() {
+		when(expenseRepository.findByIdAndUserId(1L, 1L)).thenReturn(Optional.empty());
 
-    @Test
-    public void testGetExpenseByUserIdAndDateBetween() {
-        LocalDate startDate = LocalDate.of(2023, 1, 1);
-        LocalDate endDate = LocalDate.of(2023, 1, 31);
-        when(expenseRepository.findByUserIdAndDateBetween(1L, startDate, endDate))
-                .thenReturn(Arrays.asList(expense));
+		assertThrows(ExpenseNotFoundException.class, () -> {
+			expenseService.updateExpense(1L, expenseDTO);
+		});
+	}
 
-        List<Expense> expenses = expenseService.getExpenseByUserIdAndDateBetween(1L, startDate, endDate);
+	@Test
+	public void testGetExpenseByUserIdAndDateBetween() {
+		LocalDate startDate = LocalDate.of(2023, 1, 1);
+		LocalDate endDate = LocalDate.of(2023, 1, 31);
+		when(expenseRepository.findByUserIdAndDateBetween(1L, startDate, endDate)).thenReturn(Arrays.asList(expense));
 
-        assertNotNull(expenses);
-        assertFalse(expenses.isEmpty());
-    }
+		List<Expense> expenses = expenseService.getExpenseByUserIdAndDateBetween(1L, startDate, endDate);
 
-    @Test
-    public void testGetExpenseByUserIdAndDateBetween_NotFound() {
-        LocalDate startDate = LocalDate.of(2023, 1, 1);
-        LocalDate endDate = LocalDate.of(2023, 1, 31);
-        when(expenseRepository.findByUserIdAndDateBetween(1L, startDate, endDate))
-                .thenReturn(Arrays.asList());
+		assertNotNull(expenses);
+		assertFalse(expenses.isEmpty());
+	}
 
-        assertThrows(ExpenseNotFoundException.class, () -> {
-            expenseService.getExpenseByUserIdAndDateBetween(1L, startDate, endDate);
-        });
-    }
+	@Test
+	public void testGetExpenseByUserIdAndDateBetween_NotFound() {
+		LocalDate startDate = LocalDate.of(2023, 1, 1);
+		LocalDate endDate = LocalDate.of(2023, 1, 31);
+		when(expenseRepository.findByUserIdAndDateBetween(1L, startDate, endDate)).thenReturn(Arrays.asList());
+
+		assertThrows(ExpenseNotFoundException.class, () -> {
+			expenseService.getExpenseByUserIdAndDateBetween(1L, startDate, endDate);
+		});
+	}
 }

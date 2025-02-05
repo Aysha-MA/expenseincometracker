@@ -1,4 +1,5 @@
 package com.project.expense.aop;
+
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
@@ -12,20 +13,20 @@ import org.springframework.stereotype.Component;
 @Component
 public class LoggingAspect {
 
-    private static final Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
+	private static final Logger logger = LoggerFactory.getLogger(LoggingAspect.class);
 
-    @Before("execution(* com.project.expense.service.*.*(..))")
-    public void logBefore(JoinPoint joinPoint) {
-        logger.info("Entering method: {} with arguments: {}", joinPoint.getSignature().getName(), joinPoint.getArgs());
-    }
+	@Before("execution(* com.project.expense.service.*.*(..))")
+	public void logBefore(JoinPoint joinPoint) {
+		logger.info("Entering method: {} with arguments: {}", joinPoint.getSignature().getName(), joinPoint.getArgs());
+	}
 
-    @AfterReturning(pointcut = "execution(* com.project.expense.service.*.*(..))", returning = "result")
-    public void logAfterReturning(JoinPoint joinPoint, Object result) {
-        logger.info("Exiting method: {} with result: {}", joinPoint.getSignature().getName(), result);
-    }
+	@AfterReturning(pointcut = "execution(* com.project.expense.service.*.*(..))", returning = "result")
+	public void logAfterReturning(JoinPoint joinPoint, Object result) {
+		logger.info("Exiting method: {} with result: {}", joinPoint.getSignature().getName(), result);
+	}
 
-    @AfterThrowing(pointcut = "execution(* com.project.expense.service.*.*(..))", throwing = "error")
-    public void logAfterThrowing(JoinPoint joinPoint, Throwable error) {
-        logger.error("Exception in method: {} with cause: {}", joinPoint.getSignature().getName(), error.getMessage());
-    }
+	@AfterThrowing(pointcut = "execution(* com.project.expense.service.*.*(..))", throwing = "error")
+	public void logAfterThrowing(JoinPoint joinPoint, Throwable error) {
+		logger.error("Exception in method: {} with cause: {}", joinPoint.getSignature().getName(), error.getMessage());
+	}
 }

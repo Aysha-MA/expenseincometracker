@@ -27,80 +27,80 @@ import com.project.user.service.UserServiceImpl;
 @ExtendWith(MockitoExtension.class)
 public class UserMicroserviceApplicationTests {
 
-    @Mock
-    private UserRepository userRepository;
+	@Mock
+	private UserRepository userRepository;
 
-    @InjectMocks
-    private UserServiceImpl userService;
+	@InjectMocks
+	private UserServiceImpl userService;
 
-    private UserDTO userDTO;
-    private User user;
+	private UserDTO userDTO;
+	private User user;
 
-    @BeforeEach
-    public void setUp() {
-        userDTO = new UserDTO("testUser", "password", "test@example.com");
-        user = new User();
-        user.setUserId(1L);
-        user.setUserName(userDTO.getUserName());
-        user.setPassword(userDTO.getPassword());
-        user.setEmail(userDTO.getEmail());
-    }
+	@BeforeEach
+	public void setUp() {
+		userDTO = new UserDTO("testUser", "password", "test@example.com");
+		user = new User();
+		user.setUserId(1L);
+		user.setUserName(userDTO.getUserName());
+		user.setPassword(userDTO.getPassword());
+		user.setEmail(userDTO.getEmail());
+	}
 
-    @Test
-    public void testRegisterUser_Success() {
-        when(userRepository.findByUserName(userDTO.getUserName())).thenReturn(null);
-        when(userRepository.findByEmail(userDTO.getEmail())).thenReturn(null);
-        when(userRepository.save(any(User.class))).thenReturn(user);
+	@Test
+	public void testRegisterUser_Success() {
+		when(userRepository.findByUserName(userDTO.getUserName())).thenReturn(null);
+		when(userRepository.findByEmail(userDTO.getEmail())).thenReturn(null);
+		when(userRepository.save(any(User.class))).thenReturn(user);
 
-        User result = userService.registerUser(userDTO);
-        assertNotNull(result);
-        assertEquals(user.getUserName(), result.getUserName());
-        assertEquals(user.getEmail(), result.getEmail());
-    }
+		User result = userService.registerUser(userDTO);
+		assertNotNull(result);
+		assertEquals(user.getUserName(), result.getUserName());
+		assertEquals(user.getEmail(), result.getEmail());
+	}
 
-    @Test
-    public void testRegisterUser_UserAlreadyExists() {
-        when(userRepository.findByUserName(userDTO.getUserName())).thenReturn(new User());
+	@Test
+	public void testRegisterUser_UserAlreadyExists() {
+		when(userRepository.findByUserName(userDTO.getUserName())).thenReturn(new User());
 
-        assertThrows(UserAlreadyExistsException.class, () -> {
-            userService.registerUser(userDTO);
-        });
-    }
+		assertThrows(UserAlreadyExistsException.class, () -> {
+			userService.registerUser(userDTO);
+		});
+	}
 
-    @Test
-    public void testGetUserById_Success() {
-        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+	@Test
+	public void testGetUserById_Success() {
+		when(userRepository.findById(1L)).thenReturn(Optional.of(user));
 
-        UserDTO result = userService.getUserById(1L);
-        assertNotNull(result);
-        assertEquals("testUser", result.getUserName());
-        assertEquals("test@example.com", result.getEmail());
-    }
+		UserDTO result = userService.getUserById(1L);
+		assertNotNull(result);
+		assertEquals("testUser", result.getUserName());
+		assertEquals("test@example.com", result.getEmail());
+	}
 
-    @Test
-    public void testGetUserById_UserNotFound() {
-        when(userRepository.findById(1L)).thenReturn(Optional.empty());
+	@Test
+	public void testGetUserById_UserNotFound() {
+		when(userRepository.findById(1L)).thenReturn(Optional.empty());
 
-        assertThrows(UserNotFoundException.class, () -> {
-            userService.getUserById(1L);
-        });
-    }
+		assertThrows(UserNotFoundException.class, () -> {
+			userService.getUserById(1L);
+		});
+	}
 
-    @Test
-    public void testDeleteUser_Success() {
-        when(userRepository.findById(1L)).thenReturn(Optional.of(user));
+	@Test
+	public void testDeleteUser_Success() {
+		when(userRepository.findById(1L)).thenReturn(Optional.of(user));
 
-        String result = userService.deleteUser(1L);
-        assertEquals("User Deleted Successfully", result);
-        verify(userRepository, times(1)).delete(user);
-    }
+		String result = userService.deleteUser(1L);
+		assertEquals("User Deleted Successfully", result);
+		verify(userRepository, times(1)).delete(user);
+	}
 
-    @Test
-    public void testDeleteUser_UserNotFound() {
-        when(userRepository.findById(1L)).thenReturn(Optional.empty());
+	@Test
+	public void testDeleteUser_UserNotFound() {
+		when(userRepository.findById(1L)).thenReturn(Optional.empty());
 
-        assertThrows(UserNotFoundException.class, () -> {
-            userService.deleteUser(1L);
-        });
-    }
+		assertThrows(UserNotFoundException.class, () -> {
+			userService.deleteUser(1L);
+		});
+	}
 }

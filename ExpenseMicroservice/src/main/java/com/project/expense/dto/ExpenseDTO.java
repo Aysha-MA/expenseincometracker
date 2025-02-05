@@ -20,7 +20,7 @@ public class ExpenseDTO {
 
 	@NotNull(message = "Date is mandatory")
 	private LocalDate date;
-	
+
 	@NotNull(message = "User ID is mandatory")
 	private Long userId;
 }
