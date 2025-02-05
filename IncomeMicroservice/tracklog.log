@@ -438,3 +438,4 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 2025-02-05T06:39:48.421+05:30 ERROR 32608 --- [IncomeMicroservice] [http-nio-8083-exec-2] com.project.income.aop.LoggingAspect     : Exception in method: getIncomesByUserIdAndDateBetween with cause: No incomes found for the given date range
 2025-02-05T06:39:48.428+05:30  WARN 32608 --- [IncomeMicroservice] [http-nio-8083-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.project.income.exception.IncomeNotFoundException: No incomes found for the given date range]
 2025-02-05T06:41:43.048+05:30  INFO 32608 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-05T06:46:43.062+05:30  INFO 32608 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
