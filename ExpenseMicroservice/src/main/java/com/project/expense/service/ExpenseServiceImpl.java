@@ -17,6 +17,9 @@ import com.project.expense.entity.Expense;
 import com.project.expense.exception.ExpenseNotFoundException;
 import com.project.expense.repository.ExpenseRepository;
 
+/**
+ * Service implementation for managing incomes.
+ */
 @Service
 @Transactional
 public class ExpenseServiceImpl implements ExpenseService {
