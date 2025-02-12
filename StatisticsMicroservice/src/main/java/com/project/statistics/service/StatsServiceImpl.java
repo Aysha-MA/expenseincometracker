@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +28,6 @@ public class StatsServiceImpl implements StatsService {
 	private final IncomeClient incomeClient;
 	private final StatsRepository statsRepository;
 
-	@Autowired
 	public StatsServiceImpl(ExpenseClient expenseClient, IncomeClient incomeClient, StatsRepository statsRepository) {
 		this.expenseClient = expenseClient;
 		this.incomeClient = incomeClient;

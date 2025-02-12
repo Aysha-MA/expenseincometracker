@@ -1,378 +1,25 @@
-2025-02-05T03:31:25.914+05:30  WARN 14956 --- [ExpenseMicroservice] [HikariPool-11 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-11 - Thread starvation or clock leap detected (housekeeper delta=8h33m42s111ms416µs200ns).
-2025-02-05T06:24:35.239+05:30  WARN 14956 --- [ExpenseMicroservice] [HikariPool-11 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-11 - Thread starvation or clock leap detected (housekeeper delta=2h53m15s275ms987µs500ns).
-2025-02-05T06:24:35.379+05:30  INFO 14956 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-02-05T06:29:35.388+05:30  INFO 14956 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-02-05T06:34:35.395+05:30  INFO 14956 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-02-05T06:35:50.025+05:30  INFO 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2025-02-05T06:35:50.025+05:30  INFO 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application EXPENSEMICROSERVICE with eureka with status DOWN
-2025-02-05T06:35:50.025+05:30  INFO 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1738717550025, current=DOWN, previous=UP]
-2025-02-05T06:35:50.026+05:30  INFO 14956 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082: registering service...
-2025-02-05T06:35:50.026+05:30  INFO 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-02-05T06:35:50.031+05:30  INFO 14956 --- [ExpenseMicroservice] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-02-05T06:35:50.037+05:30  INFO 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-02-05T06:35:50.039+05:30  INFO 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
-2025-02-05T06:35:50.053+05:30  INFO 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
-2025-02-05T06:35:50.054+05:30  INFO 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
-2025-02-05T06:35:50.056+05:30  INFO 14956 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on POST request for "http://localhost:8761/eureka/apps/EXPENSEMICROSERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/EXPENSEMICROSERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:87)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828)
-	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125)
-	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1575)
-Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:760)
-	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
-	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
-	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
-	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
-	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
-	... 21 more
-
-2025-02-05T06:35:50.057+05:30  WARN 14956 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/EXPENSEMICROSERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-2025-02-05T06:35:50.085+05:30  INFO 14956 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/EXPENSEMICROSERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/EXPENSEMICROSERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:87)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828)
-	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125)
-	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1575)
-Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:760)
-	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
-	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
-	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
-	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
-	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
-	... 22 more
-
-2025-02-05T06:35:50.086+05:30  WARN 14956 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/EXPENSEMICROSERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-2025-02-05T06:35:50.086+05:30  WARN 14956 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082 - registration failed Cannot execute request on any known server
-
-com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar:2.0.4]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
-
-2025-02-05T06:35:50.089+05:30  WARN 14956 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
-
-com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar:2.0.4]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
-
-2025-02-05T06:35:50.092+05:30  INFO 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
-2025-02-05T06:35:50.118+05:30  INFO 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:100)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
-	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195)
-	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
-	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:686)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:643)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1368)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:602)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1361)
-	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1219)
-	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1180)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
-	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1126)
-	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown(SpringApplicationAdminMXBeanRegistrar.java:160)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:64)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:97)
-	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193)
-	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175)
-	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:115)
-	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:52)
-	at java.management/com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:236)
-	at java.management/com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138)
-	at java.management/com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252)
-	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:803)
-	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1520)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1348)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1435)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:841)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
-	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1575)
-Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:760)
-	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
-	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
-	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
-	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
-	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
-	... 69 more
-
-2025-02-05T06:35:50.120+05:30  WARN 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-2025-02-05T06:35:50.120+05:30 ERROR 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082 - de-registration failedCannot execute request on any known server
-
-com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900) ~[eureka-client-2.0.4.jar:2.0.4]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389) ~[spring-cloud-context-4.2.0.jar:4.2.0]
-	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136) ~[spring-cloud-context-4.2.0.jar:4.2.0]
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:686) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:643) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1368) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:602) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1361) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1219) ~[spring-context-6.2.2.jar:6.2.2]
-	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1180) ~[spring-context-6.2.2.jar:6.2.2]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174) ~[spring-boot-3.4.2.jar:3.4.2]
-	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1126) ~[spring-context-6.2.2.jar:6.2.2]
-	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown(SpringApplicationAdminMXBeanRegistrar.java:160) ~[spring-boot-3.4.2.jar:3.4.2]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:64) ~[na:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at java.base/sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:97) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:115) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:52) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:236) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252) ~[na:na]
-	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:803) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802) ~[na:na]
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1520) ~[na:na]
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1348) ~[na:na]
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1435) ~[na:na]
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:841) ~[na:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360) ~[na:na]
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200) ~[na:na]
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197) ~[na:na]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714) ~[na:na]
-	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[na:na]
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598) ~[na:na]
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844) ~[na:na]
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721) ~[na:na]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[na:na]
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
-
-2025-02-05T06:35:50.125+05:30  INFO 14956 --- [ExpenseMicroservice] [RMI TCP Connection(344)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
-2025-02-05T06:36:42.900+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] c.p.e.ExpenseMicroserviceApplication     : Starting ExpenseMicroserviceApplication using Java 23.0.1 with PID 30300 (C:\Users\2380378\git\expenseincometracker\ExpenseMicroservice\target\classes started by 2380378 in C:\Users\2380378\git\expenseincometracker\ExpenseMicroservice)
-2025-02-05T06:36:42.904+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] c.p.e.ExpenseMicroserviceApplication     : No active profile set, falling back to 1 default profile: "default"
-2025-02-05T06:36:43.016+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:1234
-2025-02-05T06:36:43.017+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=ExpenseMicroservice, profiles=[default], label=null, version=a8d3f205eee036121894df30b0313383363a635f, state=
-2025-02-05T06:36:43.021+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-02-05T06:36:43.021+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-02-05T06:36:44.257+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-05T06:36:44.443+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 172 ms. Found 1 JPA repository interface.
-2025-02-05T06:36:44.760+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1683e4fa-abdb-3dd9-8f22-dfdb26a9aeba
-2025-02-05T06:36:45.480+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
-2025-02-05T06:36:45.504+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-02-05T06:36:45.504+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
-2025-02-05T06:36:45.569+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-02-05T06:36:45.570+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2547 ms
-2025-02-05T06:36:45.755+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-05T06:36:45.816+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
-2025-02-05T06:36:45.853+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-02-05T06:36:46.142+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-05T06:36:46.178+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-02-05T06:36:46.543+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@476db748
-2025-02-05T06:36:46.545+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-02-05T06:36:46.641+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-02-12T05:55:20.602+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] c.p.e.ExpenseMicroserviceApplication     : Starting ExpenseMicroserviceApplication using Java 23.0.1 with PID 18208 (C:\Users\2380378\git\expenseincometracker\ExpenseMicroservice\target\classes started by 2380378 in C:\Users\2380378\git\expenseincometracker\ExpenseMicroservice)
+2025-02-12T05:55:20.618+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] c.p.e.ExpenseMicroserviceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-02-12T05:55:20.793+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:1234
+2025-02-12T05:55:20.793+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=ExpenseMicroservice, profiles=[default], label=null, version=a8d3f205eee036121894df30b0313383363a635f, state=
+2025-02-12T05:55:20.799+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-12T05:55:20.800+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-12T05:55:23.007+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-12T05:55:23.458+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 419 ms. Found 1 JPA repository interface.
+2025-02-12T05:55:24.222+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1683e4fa-abdb-3dd9-8f22-dfdb26a9aeba
+2025-02-12T05:55:26.097+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
+2025-02-12T05:55:26.126+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-12T05:55:26.126+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-12T05:55:26.295+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-12T05:55:26.297+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 5496 ms
+2025-02-12T05:55:26.810+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-12T05:55:27.018+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-12T05:55:27.126+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-12T05:55:27.879+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-12T05:55:27.937+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-12T05:55:28.435+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3dd37ee
+2025-02-12T05:55:28.440+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-12T05:55:28.578+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.40
@@ -380,131 +27,77 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-05T06:36:47.897+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-05T06:36:47.979+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-05T06:36:48.605+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-02-05T06:36:49.751+05:30  WARN 30300 --- [ExpenseMicroservice] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-02-05T06:36:50.773+05:30  WARN 30300 --- [ExpenseMicroservice] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2025-02-05T06:36:50.891+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2025-02-05T06:36:50.970+05:30  WARN 30300 --- [ExpenseMicroservice] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2025-02-05T06:36:51.070+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2025-02-05T06:36:51.103+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2025-02-05T06:36:51.108+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-02-05T06:36:51.120+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2025-02-05T06:36:51.120+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2025-02-05T06:36:51.120+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2025-02-05T06:36:51.120+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2025-02-05T06:36:51.120+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2025-02-05T06:36:51.120+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2025-02-05T06:36:51.120+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2025-02-05T06:36:51.599+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2025-02-05T06:36:51.602+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2025-02-05T06:36:51.607+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2025-02-05T06:36:51.609+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1738717611609 with initial instances count: 1
-2025-02-05T06:36:51.622+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application EXPENSEMICROSERVICE with eureka with status UP
-2025-02-05T06:36:51.623+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1738717611623, current=UP, previous=STARTING]
-2025-02-05T06:36:51.629+05:30  INFO 30300 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082: registering service...
-2025-02-05T06:36:51.677+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
-2025-02-05T06:36:51.679+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
-2025-02-05T06:36:51.707+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] c.p.e.ExpenseMicroserviceApplication     : Started ExpenseMicroserviceApplication in 11.064 seconds (process running for 12.887)
-2025-02-05T06:36:51.735+05:30  INFO 30300 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082 - registration status: 204
-2025-02-05T06:37:52.584+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-02-05T06:37:52.585+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-02-05T06:37:52.588+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2025-02-05T06:37:52.788+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-1] com.project.expense.aop.LoggingAspect    : Entering method: getTotalExpenses with arguments: [123]
-2025-02-05T06:37:53.112+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-1] com.project.expense.aop.LoggingAspect    : Exiting method: getTotalExpenses with result: 953000.0
-2025-02-05T06:37:59.175+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-2] com.project.expense.aop.LoggingAspect    : Entering method: getExpenseByUserIdAndDateBetween with arguments: [115, 2025-01-06, 2025-02-05]
-2025-02-05T06:37:59.393+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-2] com.project.expense.aop.LoggingAspect    : Exiting method: getExpenseByUserIdAndDateBetween with result: [Expense(id=50, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-31, userId=115), Expense(id=51, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-31, userId=115), Expense(id=53, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-28, userId=115)]
-2025-02-05T06:38:09.249+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-3] com.project.expense.aop.LoggingAspect    : Entering method: getAllExpenses with arguments: [115, Page request [number: 0, size 10, sort: UNSORTED]]
-2025-02-05T06:38:09.303+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-3] com.project.expense.aop.LoggingAspect    : Exiting method: getAllExpenses with result: Page 1 of 1 containing com.project.expense.entity.Expense instances
-2025-02-05T06:38:09.320+05:30  WARN 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-3] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+2025-02-12T05:55:29.781+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-12T05:55:29.860+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-12T05:55:30.392+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-12T05:55:31.215+05:30  WARN 18208 --- [ExpenseMicroservice] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-12T05:55:32.193+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-02-12T05:55:32.313+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-02-12T05:55:32.415+05:30  WARN 18208 --- [ExpenseMicroservice] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-02-12T05:55:32.528+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-02-12T05:55:32.576+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-02-12T05:55:32.591+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T05:55:32.610+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-02-12T05:55:32.611+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-02-12T05:55:32.611+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-02-12T05:55:32.612+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-02-12T05:55:32.612+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-02-12T05:55:32.613+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-02-12T05:55:32.613+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-02-12T05:55:33.100+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-02-12T05:55:33.102+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-02-12T05:55:33.105+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-02-12T05:55:33.107+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1739319933107 with initial instances count: 0
+2025-02-12T05:55:33.116+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application EXPENSEMICROSERVICE with eureka with status UP
+2025-02-12T05:55:33.117+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1739319933117, current=UP, previous=STARTING]
+2025-02-12T05:55:33.119+05:30  INFO 18208 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082: registering service...
+2025-02-12T05:55:33.144+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
+2025-02-12T05:55:33.145+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
+2025-02-12T05:55:33.164+05:30  INFO 18208 --- [ExpenseMicroservice] [restartedMain] c.p.e.ExpenseMicroserviceApplication     : Started ExpenseMicroserviceApplication in 22.152 seconds (process running for 24.553)
+2025-02-12T05:55:33.294+05:30  INFO 18208 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082 - registration status: 204
+2025-02-12T05:56:03.107+05:30  INFO 18208 --- [ExpenseMicroservice] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-02-12T05:56:03.107+05:30  INFO 18208 --- [ExpenseMicroservice] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-02-12T05:56:03.107+05:30  INFO 18208 --- [ExpenseMicroservice] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-02-12T05:56:03.107+05:30  INFO 18208 --- [ExpenseMicroservice] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-02-12T05:56:03.107+05:30  INFO 18208 --- [ExpenseMicroservice] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-02-12T05:56:03.107+05:30  INFO 18208 --- [ExpenseMicroservice] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Application version is -1: false
+2025-02-12T05:56:03.107+05:30  INFO 18208 --- [ExpenseMicroservice] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-02-12T05:56:03.139+05:30  INFO 18208 --- [ExpenseMicroservice] [DiscoveryClient-CacheRefreshExecutor-%d] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-02-12T05:57:37.716+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-12T05:57:37.716+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-02-12T05:57:37.718+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-02-12T05:57:37.811+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-1] com.project.expense.aop.LoggingAspect    : Entering method: getTotalExpenses with arguments: [115]
+2025-02-12T05:57:37.949+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-1] com.project.expense.aop.LoggingAspect    : Exiting method: getTotalExpenses with result: 1821.0
+2025-02-12T05:57:44.944+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-2] com.project.expense.aop.LoggingAspect    : Entering method: getExpenseByUserIdAndDateBetween with arguments: [123, 2025-01-13, 2025-02-12]
+2025-02-12T05:57:45.014+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-2] com.project.expense.aop.LoggingAspect    : Exiting method: getExpenseByUserIdAndDateBetween with result: [Expense(id=6, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=8, title=Frui, description=Shoppingss, category=PG, amount=1500.0, date=2025-01-25, userId=123), Expense(id=9, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=10, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=11, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=12, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=13, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=14, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=15, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=16, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=17, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=18, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=19, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=20, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=21, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=22, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=23, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=24, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=25, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=26, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=27, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=28, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Expense(id=29, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-28, userId=123), Expense(id=30, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-28, userId=123), Expense(id=31, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-28, userId=123), Expense(id=32, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-28, userId=123), Expense(id=33, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-28, userId=123), Expense(id=34, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-28, userId=123), Expense(id=35, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-28, userId=123), Expense(id=36, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-28, userId=123), Expense(id=37, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-28, userId=123), Expense(id=38, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-28, userId=123), Expense(id=39, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-28, userId=123), Expense(id=40, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-25, userId=123), Expense(id=41, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-24, userId=123)]
+2025-02-12T05:59:51.890+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-4] com.project.expense.aop.LoggingAspect    : Entering method: getAllExpenses with arguments: [115, Page request [number: 1, size 10, sort: UNSORTED]]
+2025-02-12T05:59:51.908+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-4] com.project.expense.aop.LoggingAspect    : Exiting method: getAllExpenses with result: Page 2 of 2 containing com.project.expense.entity.Expense instances
+2025-02-12T05:59:51.917+05:30  WARN 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-4] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
 	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
 	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
 
-2025-02-05T06:38:14.466+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-5] com.project.expense.aop.LoggingAspect    : Entering method: getTotalExpenses with arguments: [115]
-2025-02-05T06:38:14.473+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-5] com.project.expense.aop.LoggingAspect    : Exiting method: getTotalExpenses with result: 1507.5
-2025-02-05T06:38:19.790+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-6] com.project.expense.aop.LoggingAspect    : Entering method: getExpense with arguments: [54, 115]
-2025-02-05T06:38:19.800+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-6] com.project.expense.aop.LoggingAspect    : Exiting method: getExpense with result: Expense(id=54, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-01, userId=115)
-2025-02-05T06:38:24.937+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-7] com.project.expense.aop.LoggingAspect    : Entering method: getExpenseByUserIdAndDateBetween with arguments: [115, 2025-01-25, 2025-01-31]
-2025-02-05T06:38:24.948+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-7] com.project.expense.aop.LoggingAspect    : Exiting method: getExpenseByUserIdAndDateBetween with result: [Expense(id=50, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-31, userId=115), Expense(id=51, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-31, userId=115), Expense(id=53, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-28, userId=115)]
-2025-02-05T06:38:29.497+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-8] com.project.expense.aop.LoggingAspect    : Entering method: addExpense with arguments: [ExpenseDTO(title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-02, userId=115)]
-2025-02-05T06:38:29.617+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-8] com.project.expense.aop.LoggingAspect    : Exiting method: addExpense with result: Expense(id=60, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-02, userId=115)
-2025-02-05T06:38:33.457+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-9] com.project.expense.aop.LoggingAspect    : Entering method: updateExpense with arguments: [52, ExpenseDTO(title=Groceries, description=Weekly grocery shopping, category=Foodss, amount=150.75, date=2025-01-01, userId=115)]
-2025-02-05T06:38:33.471+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-9] com.project.expense.aop.LoggingAspect    : Exiting method: updateExpense with result: Expense(id=52, title=Groceries, description=Weekly grocery shopping, category=Foodss, amount=150.75, date=2025-01-01, userId=115)
-2025-02-05T06:38:38.155+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-10] com.project.expense.aop.LoggingAspect    : Entering method: deleteExpense with arguments: [42, 123]
-2025-02-05T06:38:38.166+05:30 ERROR 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-10] com.project.expense.aop.LoggingAspect    : Exception in method: deleteExpense with cause: Expense Not Found
-2025-02-05T06:38:38.190+05:30  WARN 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.project.expense.exception.ExpenseNotFoundException: Expense Not Found]
-2025-02-05T06:38:47.899+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-1] com.project.expense.aop.LoggingAspect    : Entering method: getAllExpenses with arguments: [115, Page request [number: 0, size 10, sort: UNSORTED]]
-2025-02-05T06:38:47.919+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-1] com.project.expense.aop.LoggingAspect    : Exiting method: getAllExpenses with result: Page 1 of 2 containing com.project.expense.entity.Expense instances
-2025-02-05T06:38:56.387+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-2] com.project.expense.aop.LoggingAspect    : Entering method: getExpenseByUserIdAndDateBetween with arguments: [115, 2025-01-25, 2025-01-31]
-2025-02-05T06:38:56.396+05:30  INFO 30300 --- [ExpenseMicroservice] [http-nio-8082-exec-2] com.project.expense.aop.LoggingAspect    : Exiting method: getExpenseByUserIdAndDateBetween with result: [Expense(id=50, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-31, userId=115), Expense(id=51, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-31, userId=115), Expense(id=53, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-28, userId=115)]
-2025-02-05T06:41:51.124+05:30  INFO 30300 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-02-05T06:46:51.128+05:30  INFO 30300 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-02-05T06:50:45.688+05:30  INFO 30300 --- [ExpenseMicroservice] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 0 deletions, 1 modification)
-2025-02-05T06:50:45.692+05:30  INFO 30300 --- [ExpenseMicroservice] [Thread-1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application EXPENSEMICROSERVICE with eureka with status DOWN
-2025-02-05T06:50:45.693+05:30  INFO 30300 --- [ExpenseMicroservice] [Thread-1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1738718445693, current=DOWN, previous=UP]
-2025-02-05T06:50:45.694+05:30  INFO 30300 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082: registering service...
-2025-02-05T06:50:45.700+05:30  INFO 30300 --- [ExpenseMicroservice] [Thread-1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-02-05T06:50:45.709+05:30  INFO 30300 --- [ExpenseMicroservice] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-02-05T06:50:45.713+05:30  INFO 30300 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082 - registration status: 204
-2025-02-05T06:50:45.721+05:30  INFO 30300 --- [ExpenseMicroservice] [Thread-1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-02-05T06:50:45.732+05:30  INFO 30300 --- [ExpenseMicroservice] [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-02-05T06:50:45.759+05:30  INFO 30300 --- [ExpenseMicroservice] [Thread-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-02-05T06:50:45.761+05:30  INFO 30300 --- [ExpenseMicroservice] [Thread-1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
-2025-02-05T06:50:48.778+05:30  INFO 30300 --- [ExpenseMicroservice] [Thread-1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
-2025-02-05T06:50:48.799+05:30  INFO 30300 --- [ExpenseMicroservice] [Thread-1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082 - deregister  status: 200
-2025-02-05T06:50:48.800+05:30  INFO 30300 --- [ExpenseMicroservice] [Thread-1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
-2025-02-05T06:50:51.164+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] c.p.e.ExpenseMicroserviceApplication     : Starting ExpenseMicroserviceApplication using Java 23.0.1 with PID 30300 (C:\Users\2380378\git\expenseincometracker\ExpenseMicroservice\target\classes started by 2380378 in C:\Users\2380378\git\expenseincometracker\ExpenseMicroservice)
-2025-02-05T06:50:51.168+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] c.p.e.ExpenseMicroserviceApplication     : No active profile set, falling back to 1 default profile: "default"
-2025-02-05T06:50:51.177+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:1234
-2025-02-05T06:50:51.178+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=ExpenseMicroservice, profiles=[default], label=null, version=a8d3f205eee036121894df30b0313383363a635f, state=
-2025-02-05T06:50:52.238+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-05T06:50:52.287+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 42 ms. Found 1 JPA repository interface.
-2025-02-05T06:50:52.620+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=1683e4fa-abdb-3dd9-8f22-dfdb26a9aeba
-2025-02-05T06:50:53.121+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8082 (http)
-2025-02-05T06:50:53.125+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-02-05T06:50:53.125+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
-2025-02-05T06:50:53.210+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-02-05T06:50:53.210+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2032 ms
-2025-02-05T06:50:53.388+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-05T06:50:53.395+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-02-05T06:50:53.447+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-05T06:50:53.452+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
-2025-02-05T06:50:53.536+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7c4f9570
-2025-02-05T06:50:53.537+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
-2025-02-05T06:50:53.541+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
-	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-2)']
-	Database driver: undefined/unknown
-	Database version: 8.0.40
-	Autocommit mode: undefined/unknown
-	Isolation level: undefined/unknown
-	Minimum pool size: undefined/unknown
-	Maximum pool size: undefined/unknown
-2025-02-05T06:50:53.787+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-05T06:50:53.808+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-05T06:50:54.436+05:30  WARN 30300 --- [ExpenseMicroservice] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-02-05T06:50:55.280+05:30  WARN 30300 --- [ExpenseMicroservice] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2025-02-05T06:50:55.457+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2025-02-05T06:50:55.564+05:30  WARN 30300 --- [ExpenseMicroservice] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2025-02-05T06:50:55.654+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2025-02-05T06:50:55.665+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2025-02-05T06:50:55.666+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-02-05T06:50:55.667+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2025-02-05T06:50:55.668+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2025-02-05T06:50:55.668+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2025-02-05T06:50:55.669+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2025-02-05T06:50:55.670+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2025-02-05T06:50:55.670+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2025-02-05T06:50:55.671+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2025-02-05T06:50:55.773+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2025-02-05T06:50:55.775+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2025-02-05T06:50:55.776+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2025-02-05T06:50:55.777+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1738718455776 with initial instances count: 5
-2025-02-05T06:50:55.792+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application EXPENSEMICROSERVICE with eureka with status UP
-2025-02-05T06:50:55.792+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1738718455792, current=UP, previous=STARTING]
-2025-02-05T06:50:55.793+05:30  INFO 30300 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082: registering service...
-2025-02-05T06:50:55.801+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8082 (http) with context path '/'
-2025-02-05T06:50:55.802+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8082
-2025-02-05T06:50:55.820+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] c.p.e.ExpenseMicroserviceApplication     : Started ExpenseMicroserviceApplication in 6.844 seconds (process running for 857.0)
-2025-02-05T06:50:55.824+05:30  INFO 30300 --- [ExpenseMicroservice] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
-2025-02-05T06:50:55.827+05:30  INFO 30300 --- [ExpenseMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_EXPENSEMICROSERVICE/LTIN563691.cts.com:ExpenseMicroservice:8082 - registration status: 204
+2025-02-12T05:59:56.844+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-6] com.project.expense.aop.LoggingAspect    : Entering method: getTotalExpenses with arguments: [115]
+2025-02-12T05:59:56.847+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-6] com.project.expense.aop.LoggingAspect    : Exiting method: getTotalExpenses with result: 1821.0
+2025-02-12T06:00:03.496+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-7] com.project.expense.aop.LoggingAspect    : Entering method: getExpense with arguments: [88, 115]
+2025-02-12T06:00:03.500+05:30 ERROR 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-7] com.project.expense.aop.LoggingAspect    : Exception in method: getExpense with cause: Expense Not Found
+2025-02-12T06:00:03.508+05:30  WARN 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.project.expense.exception.ExpenseNotFoundException: Expense Not Found]
+2025-02-12T06:00:08.550+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-8] com.project.expense.aop.LoggingAspect    : Entering method: getExpenseByUserIdAndDateBetween with arguments: [115, 2025-01-25, 2025-01-31]
+2025-02-12T06:00:08.554+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-8] com.project.expense.aop.LoggingAspect    : Exiting method: getExpenseByUserIdAndDateBetween with result: [Expense(id=50, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-31, userId=115), Expense(id=51, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-31, userId=115), Expense(id=53, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.75, date=2025-01-28, userId=115)]
+2025-02-12T06:00:13.619+05:30  WARN 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.project.expense.entity.Expense com.project.expense.controller.ExpenseController.addExpense(com.project.expense.dto.ExpenseDTO): [Field error in object 'expenseDTO' on field 'amount': rejected value [null]; codes [NotNull.expenseDTO.amount,NotNull.amount,NotNull.java.lang.Double,NotNull]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [expenseDTO.amount,amount]; arguments []; default message [amount]]; default message [Amount is mandatory]] ]
+2025-02-12T06:00:17.984+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-1] com.project.expense.aop.LoggingAspect    : Entering method: updateExpense with arguments: [52, ExpenseDTO(title=Groceries, description=Weekly grocery shopping, category=Foodss, amount=150.75, date=2025-01-01, userId=115)]
+2025-02-12T06:00:17.997+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-1] com.project.expense.aop.LoggingAspect    : Exiting method: updateExpense with result: Expense(id=52, title=Groceries, description=Weekly grocery shopping, category=Foodss, amount=150.75, date=2025-01-01, userId=115)
+2025-02-12T06:00:22.917+05:30  INFO 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-2] com.project.expense.aop.LoggingAspect    : Entering method: deleteExpense with arguments: [42, 123]
+2025-02-12T06:00:22.922+05:30 ERROR 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-2] com.project.expense.aop.LoggingAspect    : Exception in method: deleteExpense with cause: Expense Not Found
+2025-02-12T06:00:22.926+05:30  WARN 18208 --- [ExpenseMicroservice] [http-nio-8082-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.project.expense.exception.ExpenseNotFoundException: Expense Not Found]
+2025-02-12T06:00:32.622+05:30  INFO 18208 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:05:32.625+05:30  INFO 18208 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:10:32.636+05:30  INFO 18208 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:15:32.641+05:30  INFO 18208 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:20:32.656+05:30  INFO 18208 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:25:32.661+05:30  INFO 18208 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:31:03.192+05:30  WARN 18208 --- [ExpenseMicroservice] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m34s163ms39µs200ns).
+2025-02-12T06:33:36.810+05:30  INFO 18208 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:38:36.826+05:30  INFO 18208 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:43:36.830+05:30  INFO 18208 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:48:36.841+05:30  INFO 18208 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:53:36.842+05:30  INFO 18208 --- [ExpenseMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

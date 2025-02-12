@@ -1,376 +1,25 @@
-2025-02-05T06:24:08.424+05:30  WARN 2824 --- [IncomeMicroservice] [HikariPool-11 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-11 - Thread starvation or clock leap detected (housekeeper delta=11h26m27s371ms117µs900ns).
-2025-02-05T06:28:08.770+05:30  INFO 2824 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-02-05T06:33:08.777+05:30  INFO 2824 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-02-05T06:35:53.048+05:30  INFO 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
-2025-02-05T06:35:53.050+05:30  INFO 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application INCOMEMICROSERVICE with eureka with status DOWN
-2025-02-05T06:35:53.050+05:30  INFO 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1738717553050, current=DOWN, previous=UP]
-2025-02-05T06:35:53.051+05:30  INFO 2824 --- [IncomeMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INCOMEMICROSERVICE/LTIN563691.cts.com:IncomeMicroservice:8083: registering service...
-2025-02-05T06:35:53.051+05:30  INFO 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-02-05T06:35:53.061+05:30  INFO 2824 --- [IncomeMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/} exception=I/O error on POST request for "http://localhost:8761/eureka/apps/INCOMEMICROSERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/INCOMEMICROSERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:87)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:91)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828)
-	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125)
-	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1575)
-Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:760)
-	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
-	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
-	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
-	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
-	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
-	... 21 more
-
-2025-02-05T06:35:53.062+05:30  WARN 2824 --- [IncomeMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/INCOMEMICROSERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-2025-02-05T06:35:53.063+05:30  INFO 2824 --- [IncomeMicroservice] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-02-05T06:35:53.067+05:30  INFO 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-02-05T06:35:53.068+05:30  INFO 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown initiated...
-2025-02-05T06:35:53.079+05:30  INFO 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-11 - Shutdown completed.
-2025-02-05T06:35:53.080+05:30  INFO 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
-2025-02-05T06:35:53.092+05:30  INFO 2824 --- [IncomeMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on POST request for "http://localhost:8761/eureka/apps/INCOMEMICROSERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on POST request for "http://localhost:8761/eureka/apps/INCOMEMICROSERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.register(RestTemplateEurekaHttpClient.java:87)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56)
-	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828)
-	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125)
-	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105)
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1575)
-Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:760)
-	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
-	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
-	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
-	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
-	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
-	... 22 more
-
-2025-02-05T06:35:53.092+05:30  WARN 2824 --- [IncomeMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on POST request for "http://localhost:8761/eureka/apps/INCOMEMICROSERVICE": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-2025-02-05T06:35:53.093+05:30  WARN 2824 --- [IncomeMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INCOMEMICROSERVICE/LTIN563691.cts.com:IncomeMicroservice:8083 - registration failed Cannot execute request on any known server
-
-com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar:2.0.4]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
-
-2025-02-05T06:35:53.094+05:30  WARN 2824 --- [IncomeMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] c.n.discovery.InstanceInfoReplicator     : There was a problem with the instance info replicator
-
-com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$1.execute(EurekaHttpClientDecorator.java:59) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.register(EurekaHttpClientDecorator.java:56) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.DiscoveryClient.register(DiscoveryClient.java:828) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.InstanceInfoReplicator.run(InstanceInfoReplicator.java:125) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.InstanceInfoReplicator$2.run(InstanceInfoReplicator.java:105) ~[eureka-client-2.0.4.jar:2.0.4]
-	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
-	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[na:na]
-	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
-
-2025-02-05T06:35:53.095+05:30  INFO 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Unregistering ...
-2025-02-05T06:35:53.103+05:30  INFO 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] c.n.d.s.t.d.RedirectingEurekaHttpClient  : Request execution error. endpoint=DefaultEndpoint{ serviceUrl='http://localhost:8761/eureka/}, exception=I/O error on DELETE request for "http://localhost:8761/eureka/apps/INCOMEMICROSERVICE/LTIN563691.cts.com:IncomeMicroservice:8083": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt stacktrace=org.springframework.web.client.ResourceAccessException: I/O error on DELETE request for "http://localhost:8761/eureka/apps/INCOMEMICROSERVICE/LTIN563691.cts.com:IncomeMicroservice:8083": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-	at org.springframework.web.client.RestTemplate.createResourceAccessException(RestTemplate.java:926)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:906)
-	at org.springframework.web.client.RestTemplate.execute(RestTemplate.java:841)
-	at org.springframework.web.client.RestTemplate.exchange(RestTemplate.java:702)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateEurekaHttpClient.cancel(RestTemplateEurekaHttpClient.java:100)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.executeOnNewServer(RedirectingEurekaHttpClient.java:121)
-	at com.netflix.discovery.shared.transport.decorator.RedirectingEurekaHttpClient.execute(RedirectingEurekaHttpClient.java:80)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:120)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74)
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76)
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
-	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919)
-	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415)
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195)
-	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389)
-	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136)
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:686)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:643)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1368)
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:602)
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1361)
-	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1219)
-	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1180)
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174)
-	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1126)
-	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown(SpringApplicationAdminMXBeanRegistrar.java:160)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:64)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.base/sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:97)
-	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193)
-	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175)
-	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:115)
-	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:52)
-	at java.management/com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:236)
-	at java.management/com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138)
-	at java.management/com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252)
-	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:803)
-	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1520)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1348)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1435)
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:841)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
-	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200)
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714)
-	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721)
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
-	at java.base/java.lang.Thread.run(Thread.java:1575)
-Caused by: org.apache.hc.client5.http.HttpHostConnectException: Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
-	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:682)
-	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:542)
-	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:592)
-	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
-	at java.base/java.net.Socket.connect(Socket.java:760)
-	at org.apache.hc.client5.http.impl.io.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:216)
-	at org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:490)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:164)
-	at org.apache.hc.client5.http.impl.classic.InternalExecRuntime.connectEndpoint(InternalExecRuntime.java:174)
-	at org.apache.hc.client5.http.impl.classic.ConnectExec.execute(ConnectExec.java:144)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ProtocolExec.execute(ProtocolExec.java:192)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.ContentCompressionExec.execute(ContentCompressionExec.java:150)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.HttpRequestRetryExec.execute(HttpRequestRetryExec.java:113)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.RedirectExec.execute(RedirectExec.java:110)
-	at org.apache.hc.client5.http.impl.classic.ExecChainElement.execute(ExecChainElement.java:51)
-	at org.apache.hc.client5.http.impl.classic.InternalHttpClient.doExecute(InternalHttpClient.java:174)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:87)
-	at org.apache.hc.client5.http.impl.classic.CloseableHttpClient.execute(CloseableHttpClient.java:55)
-	at org.apache.hc.client5.http.classic.HttpClient.executeOpen(HttpClient.java:183)
-	at org.springframework.http.client.HttpComponentsClientHttpRequest.executeInternal(HttpComponentsClientHttpRequest.java:99)
-	at org.springframework.http.client.AbstractStreamingClientHttpRequest.executeInternal(AbstractStreamingClientHttpRequest.java:71)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:117)
-	at org.springframework.cloud.netflix.eureka.http.RestTemplateTransportClientFactory.lambda$restTemplate$3(RestTemplateTransportClientFactory.java:141)
-	at org.springframework.http.client.InterceptingClientHttpRequest$InterceptingRequestExecution.execute(InterceptingClientHttpRequest.java:88)
-	at org.springframework.http.client.InterceptingClientHttpRequest.executeInternal(InterceptingClientHttpRequest.java:72)
-	at org.springframework.http.client.AbstractBufferingClientHttpRequest.executeInternal(AbstractBufferingClientHttpRequest.java:48)
-	at org.springframework.http.client.AbstractClientHttpRequest.execute(AbstractClientHttpRequest.java:81)
-	at org.springframework.web.client.RestTemplate.doExecute(RestTemplate.java:900)
-	... 69 more
-
-2025-02-05T06:35:53.103+05:30  WARN 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] c.n.d.s.t.d.RetryableEurekaHttpClient    : Request execution failed with message: I/O error on DELETE request for "http://localhost:8761/eureka/apps/INCOMEMICROSERVICE/LTIN563691.cts.com:IncomeMicroservice:8083": Connect to http://localhost:8761 [localhost/127.0.0.1, localhost/0:0:0:0:0:0:0:1] failed: Connection refused: getsockopt
-2025-02-05T06:35:53.104+05:30 ERROR 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INCOMEMICROSERVICE/LTIN563691.cts.com:IncomeMicroservice:8083 - de-registration failedCannot execute request on any known server
-
-com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
-	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator$2.execute(EurekaHttpClientDecorator.java:74) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.SessionedEurekaHttpClient.execute(SessionedEurekaHttpClient.java:76) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.DiscoveryClient.unregister(DiscoveryClient.java:919) ~[eureka-client-2.0.4.jar:2.0.4]
-	at com.netflix.discovery.DiscoveryClient.shutdown(DiscoveryClient.java:900) ~[eureka-client-2.0.4.jar:2.0.4]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMethod.invoke(InitDestroyAnnotationBeanPostProcessor.java:457) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeDestroyMethods(InitDestroyAnnotationBeanPostProcessor.java:415) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeDestruction(InitDestroyAnnotationBeanPostProcessor.java:239) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:202) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.run(DisposableBeanAdapter.java:195) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.cloud.context.scope.GenericScope$BeanLifecycleWrapper.destroy(GenericScope.java:389) ~[spring-cloud-context-4.2.0.jar:4.2.0]
-	at org.springframework.cloud.context.scope.GenericScope.destroy(GenericScope.java:136) ~[spring-cloud-context-4.2.0.jar:4.2.0]
-	at org.springframework.beans.factory.support.DisposableBeanAdapter.destroy(DisposableBeanAdapter.java:211) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroyBean(DefaultSingletonBeanRegistry.java:686) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingleton(DefaultSingletonBeanRegistry.java:643) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingleton(DefaultListableBeanFactory.java:1368) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.destroySingletons(DefaultSingletonBeanRegistry.java:602) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.beans.factory.support.DefaultListableBeanFactory.destroySingletons(DefaultListableBeanFactory.java:1361) ~[spring-beans-6.2.2.jar:6.2.2]
-	at org.springframework.context.support.AbstractApplicationContext.destroyBeans(AbstractApplicationContext.java:1219) ~[spring-context-6.2.2.jar:6.2.2]
-	at org.springframework.context.support.AbstractApplicationContext.doClose(AbstractApplicationContext.java:1180) ~[spring-context-6.2.2.jar:6.2.2]
-	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.doClose(ServletWebServerApplicationContext.java:174) ~[spring-boot-3.4.2.jar:3.4.2]
-	at org.springframework.context.support.AbstractApplicationContext.close(AbstractApplicationContext.java:1126) ~[spring-context-6.2.2.jar:6.2.2]
-	at org.springframework.boot.admin.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin.shutdown(SpringApplicationAdminMXBeanRegistrar.java:160) ~[spring-boot-3.4.2.jar:3.4.2]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:64) ~[na:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at java.base/sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:97) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:193) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.ConvertingMethod.invokeWithOpenReturn(ConvertingMethod.java:175) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:115) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.MXBeanIntrospector.invokeM2(MXBeanIntrospector.java:52) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.MBeanIntrospector.invokeM(MBeanIntrospector.java:236) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.PerInterface.invoke(PerInterface.java:138) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.MBeanSupport.invoke(MBeanSupport.java:252) ~[na:na]
-	at java.management/com.sun.jmx.interceptor.DefaultMBeanServerInterceptor.invoke(DefaultMBeanServerInterceptor.java:803) ~[na:na]
-	at java.management/com.sun.jmx.mbeanserver.JmxMBeanServer.invoke(JmxMBeanServer.java:802) ~[na:na]
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doOperation(RMIConnectionImpl.java:1520) ~[na:na]
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1348) ~[na:na]
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1435) ~[na:na]
-	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:841) ~[na:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
-	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360) ~[na:na]
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:200) ~[na:na]
-	at java.rmi/sun.rmi.transport.Transport$1.run(Transport.java:197) ~[na:na]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:714) ~[na:na]
-	at java.rmi/sun.rmi.transport.Transport.serviceCall(Transport.java:196) ~[na:na]
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:598) ~[na:na]
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:844) ~[na:na]
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.lambda$run$0(TCPTransport.java:721) ~[na:na]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[na:na]
-	at java.rmi/sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:720) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
-	at java.base/java.lang.Thread.run(Thread.java:1575) ~[na:na]
-
-2025-02-05T06:35:53.106+05:30  INFO 2824 --- [IncomeMicroservice] [RMI TCP Connection(347)-127.0.0.1] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
-2025-02-05T06:36:32.833+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] c.p.i.IncomeMicroserviceApplication      : Starting IncomeMicroserviceApplication using Java 23.0.1 with PID 32608 (C:\Users\2380378\git\expenseincometracker\IncomeMicroservice\target\classes started by 2380378 in C:\Users\2380378\git\expenseincometracker\IncomeMicroservice)
-2025-02-05T06:36:32.835+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] c.p.i.IncomeMicroserviceApplication      : No active profile set, falling back to 1 default profile: "default"
-2025-02-05T06:36:32.950+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:1234
-2025-02-05T06:36:32.951+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=IncomeMicroservice, profiles=[default], label=null, version=a8d3f205eee036121894df30b0313383363a635f, state=
-2025-02-05T06:36:32.956+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2025-02-05T06:36:32.957+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2025-02-05T06:36:34.158+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-02-05T06:36:34.532+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 349 ms. Found 1 JPA repository interface.
-2025-02-05T06:36:35.217+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b89c8f80-243f-3c8f-b732-9e5e2152c457
-2025-02-05T06:36:36.508+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
-2025-02-05T06:36:36.521+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-02-05T06:36:36.522+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
-2025-02-05T06:36:36.618+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-02-05T06:36:36.619+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3661 ms
-2025-02-05T06:36:36.889+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-02-05T06:36:36.978+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
-2025-02-05T06:36:37.041+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-02-05T06:36:37.514+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-02-05T06:36:37.558+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-02-05T06:36:38.026+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5ee37ea5
-2025-02-05T06:36:38.028+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-02-05T06:36:38.136+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-02-12T05:56:39.221+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] c.p.i.IncomeMicroserviceApplication      : Starting IncomeMicroserviceApplication using Java 23.0.1 with PID 25956 (C:\Users\2380378\git\expenseincometracker\IncomeMicroservice\target\classes started by 2380378 in C:\Users\2380378\git\expenseincometracker\IncomeMicroservice)
+2025-02-12T05:56:39.227+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] c.p.i.IncomeMicroserviceApplication      : No active profile set, falling back to 1 default profile: "default"
+2025-02-12T05:56:39.304+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Fetching config from server at : http://localhost:1234
+2025-02-12T05:56:39.306+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.s.c.c.c.ConfigServerConfigDataLoader   : Located environment: name=IncomeMicroservice, profiles=[default], label=null, version=a8d3f205eee036121894df30b0313383363a635f, state=
+2025-02-12T05:56:39.309+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-02-12T05:56:39.310+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-02-12T05:56:40.412+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-02-12T05:56:40.678+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 246 ms. Found 1 JPA repository interface.
+2025-02-12T05:56:41.151+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b89c8f80-243f-3c8f-b732-9e5e2152c457
+2025-02-12T05:56:42.212+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8083 (http)
+2025-02-12T05:56:42.231+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-02-12T05:56:42.231+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2025-02-12T05:56:42.355+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-02-12T05:56:42.356+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3045 ms
+2025-02-12T05:56:42.639+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-02-12T05:56:42.747+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.5.Final
+2025-02-12T05:56:42.798+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-02-12T05:56:43.318+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-02-12T05:56:43.378+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-02-12T05:56:44.019+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7e1f2299
+2025-02-12T05:56:44.022+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-02-12T05:56:44.203+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 8.0.40
@@ -378,64 +27,71 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-02-05T06:36:39.742+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-02-05T06:36:39.847+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-02-05T06:36:40.590+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
-2025-02-05T06:36:41.662+05:30  WARN 32608 --- [IncomeMicroservice] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-02-05T06:36:42.499+05:30  WARN 32608 --- [IncomeMicroservice] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
-2025-02-05T06:36:42.666+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
-2025-02-05T06:36:42.798+05:30  WARN 32608 --- [IncomeMicroservice] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2025-02-05T06:36:42.952+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2025-02-05T06:36:43.016+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2025-02-05T06:36:43.024+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-02-05T06:36:43.041+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
-2025-02-05T06:36:43.041+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
-2025-02-05T06:36:43.041+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
-2025-02-05T06:36:43.042+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
-2025-02-05T06:36:43.042+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
-2025-02-05T06:36:43.042+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
-2025-02-05T06:36:43.042+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
-2025-02-05T06:36:43.485+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
-2025-02-05T06:36:43.489+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
-2025-02-05T06:36:43.492+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
-2025-02-05T06:36:43.494+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1738717603494 with initial instances count: 1
-2025-02-05T06:36:43.507+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application INCOMEMICROSERVICE with eureka with status UP
-2025-02-05T06:36:43.508+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1738717603508, current=UP, previous=STARTING]
-2025-02-05T06:36:43.512+05:30  INFO 32608 --- [IncomeMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INCOMEMICROSERVICE/LTIN563691.cts.com:IncomeMicroservice:8083: registering service...
-2025-02-05T06:36:43.545+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
-2025-02-05T06:36:43.547+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8083
-2025-02-05T06:36:43.570+05:30  INFO 32608 --- [IncomeMicroservice] [restartedMain] c.p.i.IncomeMicroserviceApplication      : Started IncomeMicroserviceApplication in 13.125 seconds (process running for 15.036)
-2025-02-05T06:36:43.590+05:30  INFO 32608 --- [IncomeMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INCOMEMICROSERVICE/LTIN563691.cts.com:IncomeMicroservice:8083 - registration status: 204
-2025-02-05T06:37:51.872+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-02-05T06:37:51.872+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-02-05T06:37:51.875+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
-2025-02-05T06:37:52.043+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-1] com.project.income.aop.LoggingAspect     : Entering method: getTotalIncome with arguments: [123]
-2025-02-05T06:37:52.312+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-1] com.project.income.aop.LoggingAspect     : Exiting method: getTotalIncome with result: 947000.0
-2025-02-05T06:37:59.475+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-2] com.project.income.aop.LoggingAspect     : Entering method: getIncomesByUserIdAndDateBetween with arguments: [115, 2025-01-06, 2025-02-05]
-2025-02-05T06:37:59.544+05:30 ERROR 32608 --- [IncomeMicroservice] [http-nio-8083-exec-2] com.project.income.aop.LoggingAspect     : Exception in method: getIncomesByUserIdAndDateBetween with cause: No incomes found for the given date range
-2025-02-05T06:37:59.558+05:30  WARN 32608 --- [IncomeMicroservice] [http-nio-8083-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.project.income.exception.IncomeNotFoundException: No incomes found for the given date range]
-2025-02-05T06:39:10.507+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-5] com.project.income.aop.LoggingAspect     : Entering method: addIncome with arguments: [IncomeDTO(title=Groceries, description=Weekly grocery shopping, category=Food, amount=1.0, date=2025-01-02, userId=115)]
-2025-02-05T06:39:10.600+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-5] com.project.income.aop.LoggingAspect     : Exiting method: addIncome with result: Income(id=44, title=Groceries, description=Weekly grocery shopping, category=Food, amount=1.0, date=2025-01-02, userId=115)
-2025-02-05T06:39:20.793+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-6] com.project.income.aop.LoggingAspect     : Entering method: addIncome with arguments: [IncomeDTO(title=Groceries, description=Weekly grocery shopping, category=Food, amount=1.0, date=2025-01-02, userId=115)]
-2025-02-05T06:39:20.800+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-6] com.project.income.aop.LoggingAspect     : Exiting method: addIncome with result: Income(id=45, title=Groceries, description=Weekly grocery shopping, category=Food, amount=1.0, date=2025-01-02, userId=115)
-2025-02-05T06:39:27.616+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-7] com.project.income.aop.LoggingAspect     : Entering method: updateIncome with arguments: [34, IncomeDTO(title=Monthly, description=feb, category=bonus, amount=2000.0, date=2025-01-01, userId=115)]
-2025-02-05T06:39:27.642+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-7] com.project.income.aop.LoggingAspect     : Exiting method: updateIncome with result: Income(id=34, title=Monthly, description=feb, category=bonus, amount=2000.0, date=2025-01-01, userId=115)
-2025-02-05T06:39:31.813+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-8] com.project.income.aop.LoggingAspect     : Entering method: deleteIncome with arguments: [37, 115]
-2025-02-05T06:39:31.822+05:30 ERROR 32608 --- [IncomeMicroservice] [http-nio-8083-exec-8] com.project.income.aop.LoggingAspect     : Exception in method: deleteIncome with cause: Income Not Found
-2025-02-05T06:39:31.829+05:30  WARN 32608 --- [IncomeMicroservice] [http-nio-8083-exec-8] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.project.income.exception.IncomeNotFoundException: Income Not Found]
-2025-02-05T06:39:35.505+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-9] com.project.income.aop.LoggingAspect     : Entering method: getAllIncome with arguments: [115, Page request [number: 0, size 20, sort: UNSORTED]]
-2025-02-05T06:39:35.527+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-9] com.project.income.aop.LoggingAspect     : Exiting method: getAllIncome with result: Page 1 of 1 containing com.project.income.entity.Income instances
-2025-02-05T06:39:35.535+05:30  WARN 32608 --- [IncomeMicroservice] [http-nio-8083-exec-9] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+2025-02-12T05:56:45.454+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-02-12T05:56:45.515+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-02-12T05:56:45.972+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2025-02-12T05:56:46.735+05:30  WARN 25956 --- [IncomeMicroservice] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-02-12T05:56:47.561+05:30  WARN 25956 --- [IncomeMicroservice] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : Unable to start LiveReload server
+2025-02-12T05:56:47.657+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] DiscoveryClientOptionalArgsConfiguration : Eureka HTTP Client uses RestTemplate.
+2025-02-12T05:56:47.747+05:30  WARN 25956 --- [IncomeMicroservice] [restartedMain] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2025-02-12T05:56:47.847+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2025-02-12T05:56:47.882+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2025-02-12T05:56:47.935+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T05:56:47.946+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Disable delta property : false
+2025-02-12T05:56:47.946+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Single vip registry refresh property : null
+2025-02-12T05:56:47.947+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Force full registry fetch : false
+2025-02-12T05:56:47.947+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application is null : false
+2025-02-12T05:56:47.947+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Registered Applications size is zero : true
+2025-02-12T05:56:47.947+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Application version is -1: true
+2025-02-12T05:56:47.948+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Getting all instance registry info from the eureka server
+2025-02-12T05:56:48.262+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : The response status is 200
+2025-02-12T05:56:48.264+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Starting heartbeat executor: renew interval is: 30
+2025-02-12T05:56:48.266+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] c.n.discovery.InstanceInfoReplicator     : InstanceInfoReplicator onDemand update allowed rate per min is 4
+2025-02-12T05:56:48.268+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1739320008268 with initial instances count: 1
+2025-02-12T05:56:48.283+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application INCOMEMICROSERVICE with eureka with status UP
+2025-02-12T05:56:48.283+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1739320008283, current=UP, previous=STARTING]
+2025-02-12T05:56:48.286+05:30  INFO 25956 --- [IncomeMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INCOMEMICROSERVICE/LTIN563691.cts.com:IncomeMicroservice:8083: registering service...
+2025-02-12T05:56:48.315+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8083 (http) with context path '/'
+2025-02-12T05:56:48.316+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8083
+2025-02-12T05:56:48.336+05:30  INFO 25956 --- [IncomeMicroservice] [restartedMain] c.p.i.IncomeMicroserviceApplication      : Started IncomeMicroserviceApplication in 10.815 seconds (process running for 11.755)
+2025-02-12T05:56:48.352+05:30  INFO 25956 --- [IncomeMicroservice] [DiscoveryClient-InstanceInfoReplicator-%d] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_INCOMEMICROSERVICE/LTIN563691.cts.com:IncomeMicroservice:8083 - registration status: 204
+2025-02-12T05:57:37.297+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-02-12T05:57:37.298+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-02-12T05:57:37.300+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-02-12T05:57:37.389+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-1] com.project.income.aop.LoggingAspect     : Entering method: getTotalIncome with arguments: [115]
+2025-02-12T05:57:37.560+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-1] com.project.income.aop.LoggingAspect     : Exiting method: getTotalIncome with result: 8458.5
+2025-02-12T05:57:45.069+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-2] com.project.income.aop.LoggingAspect     : Entering method: getIncomesByUserIdAndDateBetween with arguments: [123, 2025-01-13, 2025-02-12]
+2025-02-12T05:57:45.143+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-2] com.project.income.aop.LoggingAspect     : Exiting method: getIncomesByUserIdAndDateBetween with result: [Income(id=6, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=7, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=8, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=9, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=10, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=11, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=12, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=13, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=14, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=15, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=16, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=17, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=18, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=19, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=20, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=21, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=22, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-25, userId=123), Income(id=23, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-26, userId=123), Income(id=24, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-26, userId=123), Income(id=25, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-26, userId=123), Income(id=26, title=Salary, description=Monthly salary for jan, category=Job, amount=45000.0, date=2025-01-26, userId=123), Income(id=27, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-25, userId=123), Income(id=28, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-26, userId=123), Income(id=29, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-27, userId=123), Income(id=30, title=Fruits, description=Shoppingss, category=PG, amount=500.0, date=2025-01-28, userId=123)]
+2025-02-12T05:58:37.472+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-4] com.project.income.aop.LoggingAspect     : Entering method: addIncome with arguments: [IncomeDTO(title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.0, date=2025-01-02, userId=115)]
+2025-02-12T05:58:37.513+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-4] com.project.income.aop.LoggingAspect     : Exiting method: addIncome with result: Income(id=48, title=Groceries, description=Weekly grocery shopping, category=Food, amount=150.0, date=2025-01-02, userId=115)
+2025-02-12T05:58:42.490+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-5] com.project.income.aop.LoggingAspect     : Entering method: updateIncome with arguments: [34, IncomeDTO(title=Monthly, description=feb, category=bonus, amount=2000.0, date=2025-01-01, userId=115)]
+2025-02-12T05:58:42.499+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-5] com.project.income.aop.LoggingAspect     : Exiting method: updateIncome with result: Income(id=34, title=Monthly, description=feb, category=bonus, amount=2000.0, date=2025-01-01, userId=115)
+2025-02-12T05:58:46.784+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-7] com.project.income.aop.LoggingAspect     : Entering method: deleteIncome with arguments: [37, 115]
+2025-02-12T05:58:46.789+05:30 ERROR 25956 --- [IncomeMicroservice] [http-nio-8083-exec-7] com.project.income.aop.LoggingAspect     : Exception in method: deleteIncome with cause: Income Not Found
+2025-02-12T05:58:46.797+05:30  WARN 25956 --- [IncomeMicroservice] [http-nio-8083-exec-7] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.project.income.exception.IncomeNotFoundException: Income Not Found]
+2025-02-12T05:58:51.502+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-8] com.project.income.aop.LoggingAspect     : Entering method: getAllIncome with arguments: [115, Page request [number: 0, size 20, sort: UNSORTED]]
+2025-02-12T05:58:51.525+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-8] com.project.income.aop.LoggingAspect     : Exiting method: getAllIncome with result: Page 1 of 1 containing com.project.income.entity.Income instances
+2025-02-12T05:58:51.537+05:30  WARN 25956 --- [IncomeMicroservice] [http-nio-8083-exec-8] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
 	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
 	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
 
-2025-02-05T06:39:39.559+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-10] com.project.income.aop.LoggingAspect     : Entering method: getTotalIncome with arguments: [117]
-2025-02-05T06:39:39.565+05:30 ERROR 32608 --- [IncomeMicroservice] [http-nio-8083-exec-10] com.project.income.aop.LoggingAspect     : Exception in method: getTotalIncome with cause: No income found for user ID: 117
-2025-02-05T06:39:39.569+05:30  WARN 32608 --- [IncomeMicroservice] [http-nio-8083-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.project.income.exception.IncomeNotFoundException: No income found for user ID: 117]
-2025-02-05T06:39:43.613+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-1] com.project.income.aop.LoggingAspect     : Entering method: getIncome with arguments: [34, 115]
-2025-02-05T06:39:43.621+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-1] com.project.income.aop.LoggingAspect     : Exiting method: getIncome with result: Income(id=34, title=Monthly, description=feb, category=bonus, amount=2000.0, date=2025-01-01, userId=115)
-2025-02-05T06:39:48.412+05:30  INFO 32608 --- [IncomeMicroservice] [http-nio-8083-exec-2] com.project.income.aop.LoggingAspect     : Entering method: getIncomesByUserIdAndDateBetween with arguments: [115, 2025-02-01, 2025-02-02]
-2025-02-05T06:39:48.421+05:30 ERROR 32608 --- [IncomeMicroservice] [http-nio-8083-exec-2] com.project.income.aop.LoggingAspect     : Exception in method: getIncomesByUserIdAndDateBetween with cause: No incomes found for the given date range
-2025-02-05T06:39:48.428+05:30  WARN 32608 --- [IncomeMicroservice] [http-nio-8083-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.project.income.exception.IncomeNotFoundException: No incomes found for the given date range]
-2025-02-05T06:41:43.048+05:30  INFO 32608 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
-2025-02-05T06:46:43.062+05:30  INFO 32608 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T05:59:14.339+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-9] com.project.income.aop.LoggingAspect     : Entering method: getTotalIncome with arguments: [117]
+2025-02-12T05:59:14.344+05:30 ERROR 25956 --- [IncomeMicroservice] [http-nio-8083-exec-9] com.project.income.aop.LoggingAspect     : Exception in method: getTotalIncome with cause: No income found for user ID: 117
+2025-02-12T05:59:14.348+05:30  WARN 25956 --- [IncomeMicroservice] [http-nio-8083-exec-9] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.project.income.exception.IncomeNotFoundException: No income found for user ID: 117]
+2025-02-12T05:59:23.814+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-10] com.project.income.aop.LoggingAspect     : Entering method: getIncome with arguments: [34, 115]
+2025-02-12T05:59:23.818+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-10] com.project.income.aop.LoggingAspect     : Exiting method: getIncome with result: Income(id=34, title=Monthly, description=feb, category=bonus, amount=2000.0, date=2025-01-01, userId=115)
+2025-02-12T05:59:29.266+05:30  INFO 25956 --- [IncomeMicroservice] [http-nio-8083-exec-1] com.project.income.aop.LoggingAspect     : Entering method: getIncomesByUserIdAndDateBetween with arguments: [115, 2025-02-01, 2025-02-02]
+2025-02-12T05:59:29.270+05:30 ERROR 25956 --- [IncomeMicroservice] [http-nio-8083-exec-1] com.project.income.aop.LoggingAspect     : Exception in method: getIncomesByUserIdAndDateBetween with cause: No incomes found for the given date range
+2025-02-12T05:59:29.273+05:30  WARN 25956 --- [IncomeMicroservice] [http-nio-8083-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.project.income.exception.IncomeNotFoundException: No incomes found for the given date range]
+2025-02-12T06:01:47.953+05:30  INFO 25956 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:06:47.960+05:30  INFO 25956 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:11:47.977+05:30  INFO 25956 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:16:47.993+05:30  INFO 25956 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:21:48.000+05:30  INFO 25956 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:26:48.006+05:30  INFO 25956 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:30:48.756+05:30  WARN 25956 --- [IncomeMicroservice] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m34s155ms622µs300ns).
+2025-02-12T06:34:52.166+05:30  INFO 25956 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:39:52.174+05:30  INFO 25956 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:44:52.187+05:30  INFO 25956 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:49:52.190+05:30  INFO 25956 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration
+2025-02-12T06:54:52.203+05:30  INFO 25956 --- [IncomeMicroservice] [AsyncResolver-bootstrap-executor-%d] c.n.d.s.r.aws.ConfigClusterResolver      : Resolving eureka endpoints via configuration

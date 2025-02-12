@@ -52,7 +52,7 @@ public class UserMicroserviceApplicationTests {
 		when(userRepository.findByEmail(userDTO.getEmail())).thenReturn(null);
 		when(userRepository.save(any(User.class))).thenReturn(user);
 
-		User result = userService.registerUser(userDTO);
+		UserDTO result = userService.registerUser(userDTO);
 		assertNotNull(result);
 		assertEquals(user.getUserName(), result.getUserName());
 		assertEquals(user.getEmail(), result.getEmail());

@@ -3,7 +3,6 @@ package com.project.user.service;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,22 +23,21 @@ public class UserServiceImpl implements UserService {
 
 	private final UserRepository userRepository;
 
-	@Autowired
 	public UserServiceImpl(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
 
 	/**
-	 * Registers a new user. If a user with the same username or email already
+	 * Registers a new user. If a user with the same userName or email already
 	 * exists, a UserAlreadyExistsException is thrown.
 	 *
 	 * @param userDTO the data transfer object containing the user details
 	 * @return the registered user
-	 * @throws UserAlreadyExistsException if a user with the same username or email
+	 * @throws UserAlreadyExistsException if a user with the same userName or email
 	 *                                    already exists
 	 */
 	@Override
-	public User registerUser(UserDTO userDTO) {
+	public UserDTO registerUser(UserDTO userDTO) {
 		if (userRepository.findByUserName(userDTO.getUserName()) != null
 				|| userRepository.findByEmail(userDTO.getEmail()) != null) {
 			throw new UserAlreadyExistsException("User with the same username or email already exists");
@@ -48,7 +46,8 @@ public class UserServiceImpl implements UserService {
 		user.setUserName(userDTO.getUserName());
 		user.setPassword(userDTO.getPassword());
 		user.setEmail(userDTO.getEmail());
-		return userRepository.save(user);
+		User savedUser = userRepository.save(user);
+		return new UserDTO(savedUser.getUserName(), null, savedUser.getEmail());
 	}
 
 	/**
